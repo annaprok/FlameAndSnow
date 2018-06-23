@@ -1,0 +1,26 @@
+typedef struct retdata {
+	int min;
+	int max;
+	double avg;
+}Data;
+
+int super_func(int *arr, unsigned int len, Data *ret)
+{
+	ret->min = ret->max = *arr;
+	ret->avg = 0;
+	for (int i=0; i < len; i++) 
+    {
+		if (arr[i] < ret->min)
+		{
+			ret->min = arr[i];
+		}
+		if (ret->max < arr[i]) 
+        {
+		ret->max = arr[i];
+	    }	
+        ret->avg +=arr[i];
+    
+	}
+	ret->avg /= len;
+	return 0;
+}
